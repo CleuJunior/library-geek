@@ -1,3 +1,15 @@
-INSERT INTO tb_book (title, author, total_pages, rent, time_stamp) VALUES ('Harry Potter e a Pedra Filosofal', 'J. K. Rowling', 264, 12.24, NOW());
-INSERT INTO tb_book (title, author, total_pages, rent, time_stamp) VALUES ('Harry Potter e a Câmara Secreta', 'J. K. Rowling', 287, 15.21, NOW());
-INSERT INTO tb_book (title, author, total_pages, rent, time_stamp) VALUES ('Harry Potter e o Prisioneiro de Azkaban', 'J. K. Rowling', 288, 13.56, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('Harry Potter e a Pedra Filosofal', 'J. K. Rowling', 255, 12.24, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('Harry Potter e a Câmara Secreta', 'J. K. Rowling', 255, 15.21, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('Harry Potter e o Prisioneiro de Azkaban', 'J. K. Rowling', 317, 13.56, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('Harry Potter e o Cálice de Fogo', 'J. K. Rowling', 636, 23.56, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('Harry Potter e a Ordem da Fênix', 'J. K. Rowling', 766, 13.56, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('Harry Potter e o Enigma do Príncipe', 'J. K. Rowling', 607, 18.21, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('O Senhor dos Anéis - A Sociedade do Anel', 'J. R. R. Tolkien', 468, 32.79, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('O Senhor dos Anéis - As Duas Torres', 'J. R. R. Tolkien', 552, 34.32, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('O Senhor dos Anéis - O Retorno do Rei,', 'J. R. R. Tolkien', 431, 28.16, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('O Guia do Mochileiro das Galáxias,', 'Douglas Adams', 180, 12.99, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('As Crônicas de Gelo e Fogo - A Guerra dos Tronos', 'George R. R. Martin', 694, 52.32, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('As Crônicas de Gelo e Fogo - A Fúria dos Reis', 'George R. R. Martin', 768, 54.88, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('As Crônicas de Gelo e Fogo - A Tormenta de Espadas', 'George R. R. Martin', 973, 58.23, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('As Crônicas de Gelo e Fogo - O Festim dos Corvos', 'George R. R. Martin', 753, 51.99, NOW());
+INSERT INTO tb_book (title, author, total_pages, price, time_stamp) VALUES ('As Crônicas de Gelo e Fogo - A Dança dos Dragões', 'George R. R. Martin', 1040, 56.78, NOW());
