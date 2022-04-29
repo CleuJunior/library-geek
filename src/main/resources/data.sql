@@ -1,0 +1,3 @@
+INSERT INTO tb_book (title, author, total_pages, rent, time_stamp) VALUES ('Harry Potter e a Pedra Filosofal', 'J. K. Rowling', 264, 12.24, NOW());
+INSERT INTO tb_book (title, author, total_pages, rent, time_stamp) VALUES ('Harry Potter e a Câmara Secreta', 'J. K. Rowling', 287, 15.21, NOW());
+INSERT INTO tb_book (title, author, total_pages, rent, time_stamp) VALUES ('Harry Potter e o Prisioneiro de Azkaban', 'J. K. Rowling', 288, 13.56, NOW());
