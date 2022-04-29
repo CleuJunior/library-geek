@@ -3,16 +3,17 @@ package library.practice.mvc.spring.library.book;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @EqualsAndHashCode
 @Entity
 @Table(name = "tb_book")
@@ -25,16 +26,18 @@ public class Book implements Serializable {
     private String title;
     private String author;
     private Integer totalPages;
-    private double rent;
+    private double price;
     private LocalDateTime timeStamp;
 
-    public Book(String title, String author, Integer totalPages, double rent) {
+    public Book(String title, String author, Integer totalPages, double price) {
         this.title = title;
         this.author = author;
         this.totalPages = totalPages;
-        this.rent = rent;
+        this.price = price;
         this.timeStamp = LocalDateTime.now();
 
     }
+
+    public Book() { this.timeStamp = LocalDateTime.now(); }
 
 }
