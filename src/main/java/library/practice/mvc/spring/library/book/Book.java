@@ -4,6 +4,8 @@ package library.practice.mvc.spring.library.book;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EqualsAndHashCode
+@ToString
 @Entity
 @Table(name = "tb_book")
 public class Book implements Serializable {
@@ -23,10 +26,10 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String title;
-    private String author;
+    private  String title;
+    private  String author;
     private Integer totalPages;
-    private double price;
+    private  double price;
     private LocalDateTime timeStamp;
 
     public Book(String title, String author, Integer totalPages, double price) {
