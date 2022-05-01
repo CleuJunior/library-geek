@@ -1,22 +1,19 @@
 package library.practice.mvc.spring.library.client;
 
-import library.practice.mvc.spring.library.book.Book;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @EqualsAndHashCode
 @NoArgsConstructor
@@ -52,8 +49,7 @@ public class Client implements Serializable {
 //    @Getter
 //    private final List<Book> purchasedBooks = new ArrayList<>();
 
-    public Client(Long id, String name, String securityNumber, LocalDate birthDate, String address, String phoneNumber) {
-        this.id = id;
+    public Client(String name, String securityNumber, LocalDate birthDate, String address, String phoneNumber) {
         this.name = name;
         this.securityNumber = securityNumber;
         this.birthDate = birthDate;
