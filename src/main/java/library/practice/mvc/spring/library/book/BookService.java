@@ -41,14 +41,16 @@ public class BookService {
         bookEntity.setTotalPages(bookDTO.getTotalPages());
         bookEntity.setPrice(bookDTO.getPrice());
 
-        bookEntity = bookRepository.save(bookEntity);
+        bookRepository.save(bookEntity);
 
         return new BookDTO(bookEntity);
     }
 
     @Transactional
     public BookDTO updateBook(Long id, BookDTO bookDTO) {
-        Book bookEntity = bookRepository.findById(id).orElseThrow();
+        Book bookEntity = bookRepository.findById(id)
+                .orElseThrow();
+
         bookEntity.setTitle(bookDTO.getTitle());
         bookEntity.setAuthor(bookDTO.getAuthor());
         bookEntity.setTotalPages(bookDTO.getTotalPages());

@@ -20,12 +20,14 @@ public class BookController implements Serializable {
 
     @GetMapping
     public ResponseEntity<List<BookDTO>> listOfBooks () {
-        return ResponseEntity.ok().body(bookService.findAllBooks());
+        return ResponseEntity.ok()
+                .body(bookService.findAllBooks());
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<BookDTO> getBookById (@PathVariable Long id) {
-        return ResponseEntity.ok().body(bookService.findBookById(id));
+        return ResponseEntity.ok()
+                .body(bookService.findBookById(id));
     }
 
     @PostMapping("/add")
