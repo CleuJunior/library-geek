@@ -8,6 +8,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/books")
@@ -25,7 +26,7 @@ public class BookController implements Serializable {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<BookDTO> getBookById (@PathVariable Long id) {
+    public ResponseEntity<BookDTO> getBookById (@PathVariable UUID id) {
         return ResponseEntity.ok()
                 .body(bookService.findBookById(id));
     }
@@ -41,18 +42,17 @@ public class BookController implements Serializable {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<BookDTO> getBookById (@PathVariable Long id, @RequestBody BookDTO bookDTO) {
+    public ResponseEntity<BookDTO> getBookById (@PathVariable UUID id, @RequestBody BookDTO bookDTO) {
         BookDTO updateBook = bookService.updateBook(id, bookDTO);
         return ResponseEntity.ok().body(updateBook);
 
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Book> delete(@PathVariable Long id) {
-        bookService.deleteBookById(id);
+    public ResponseEntity<Book> delete(@PathVariable UUID id) {
+        bookService.deleteBookByUUID(id);
         return ResponseEntity.noContent().build();
 
     }
-
 
 }

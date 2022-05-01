@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 public class BookDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private long id;
+    private UUID id;
     private String title;
     private String author;
     private Integer totalPages;

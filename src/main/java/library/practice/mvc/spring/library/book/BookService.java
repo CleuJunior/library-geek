@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,8 +27,8 @@ public class BookService {
     }
 
     @Transactional(readOnly = true)
-    public BookDTO findBookById(Long id) {
-        Optional<Book> bookObject = bookRepository.findById(id);
+    public BookDTO findBookById(UUID id) {
+        Optional<Book> bookObject = bookRepository.getBookByUUID(id);
         Book entityBook = bookObject.orElseThrow(RuntimeException::new);
 
         return new BookDTO(entityBook);
@@ -47,17 +48,20 @@ public class BookService {
     }
 
     @Transactional
-    public BookDTO updateBook(Long id, BookDTO bookDTO) {
-        Book bookEntity = bookRepository.findById(id)
-                .orElseThrow();
+    public BookDTO updateBook(UUID id, BookDTO bookDTO) {
+        Optional<Book> bookObject = bookRepository.getBookByUUID(id);
+        Book entityBook = bookObject.orElseThrow(RuntimeException::new);
 
-        bookEntity.setTitle(bookDTO.getTitle());
-        bookEntity.setAuthor(bookDTO.getAuthor());
-        bookEntity.setTotalPages(bookDTO.getTotalPages());
-        bookEntity.setPrice(bookDTO.getPrice());
+        entityBook.setTitle(bookDTO.getTitle());
+        entityBook.setAuthor(bookDTO.getAuthor());
+        entityBook.setTotalPages(bookDTO.getTotalPages());
+        entityBook.setPrice(bookDTO.getPrice());
 
-        return new BookDTO(bookEntity);
+        return new BookDTO(entityBook);
     }
 
-    public void deleteBookById(Long id) { bookRepository.deleteById(id); }
+    public void deleteBookByUUID(UUID id) {
+
+        bookRepository.deleteBookByUUID(id);
+    }
 }
