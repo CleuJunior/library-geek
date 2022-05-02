@@ -4,46 +4,48 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.GenericGenerator;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import javax.persistence.Column;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @EqualsAndHashCode
 @NoArgsConstructor
-@Entity
+@Getter
+@Setter
+@DynamicInsert
 @Table(name = "tb_client")
+@Entity(name = "tb_client")
 public class Client implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
 
-    @Getter
-    @Setter
+
     private String name;
 
-    @Getter
-    @Setter
     private String securityNumber;
-    @Getter
-    @Setter
+
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private LocalDate birthDate;
 
-    @Getter
-    @Setter
+
     private String address;
-    @Getter
-    @Setter
+
     private String phoneNumber;
 
 //    @Getter

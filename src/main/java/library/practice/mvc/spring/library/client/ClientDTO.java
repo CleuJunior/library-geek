@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @NoArgsConstructor
 public class ClientDTO implements Serializable {
@@ -14,7 +15,7 @@ public class ClientDTO implements Serializable {
 
     @Getter
     @Setter
-    private Long id;
+    private UUID id;
 
     @Getter
     @Setter

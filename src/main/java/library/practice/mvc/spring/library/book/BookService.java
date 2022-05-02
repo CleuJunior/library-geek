@@ -42,7 +42,7 @@ public class BookService {
         bookEntity.setTotalPages(bookDTO.getTotalPages());
         bookEntity.setPrice(bookDTO.getPrice());
 
-        bookRepository.save(bookEntity);
+        bookRepository.saveAndFlush(bookEntity);
 
         return new BookDTO(bookEntity);
     }

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,7 +26,7 @@ public class ClientService {
     }
 
     @Transactional(readOnly = true)
-    public ClientDTO findClientById(Long id) {
+    public ClientDTO findClientById(UUID id) {
         Optional<Client> clientObject = clientRepository.findById(id);
         Client entityClient = clientObject.orElseThrow(RuntimeException::new);
 
@@ -43,13 +44,13 @@ public class ClientService {
         clientEntity.setAddress(clientDTO.getAddress());
         clientEntity.setPhoneNumber(clientDTO.getPhoneNumber());
 
-        clientRepository.save(clientEntity);
+        clientEntity = clientRepository.saveAndFlush(clientEntity);
 
         return new ClientDTO(clientEntity);
     }
 
     @Transactional
-    public ClientDTO updateClient(Long id, ClientDTO clientDTO) {
+    public ClientDTO updateClient(UUID id, ClientDTO clientDTO) {
         Client clientEntity = clientRepository.findById(id)
                 .orElseThrow();
 
@@ -63,7 +64,7 @@ public class ClientService {
     }
 
 
-    public void deleteClientById(Long id) {
+    public void deleteClientById(UUID id) {
         clientRepository.deleteById(id);
     }
 }
