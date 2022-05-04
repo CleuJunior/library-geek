@@ -35,6 +35,14 @@ public class BookService {
     }
 
     @Transactional(readOnly = true)
+    public BookDTO finBookByTitle(String title) {
+        Optional<Book> bookObject = bookRepository.getBookByTitle(title);
+        Book entityBook = bookObject.orElseThrow(RuntimeException::new);
+
+        return new BookDTO(entityBook);
+    }
+
+    @Transactional(readOnly = true)
     public BookDTO saveBook(BookDTO bookDTO) {
         Book bookEntity = new Book();
         bookEntity.setTitle(bookDTO.getTitle());

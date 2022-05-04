@@ -1,5 +1,6 @@
 package library.practice.mvc.spring.library.client;
 
+import library.practice.mvc.spring.library.config.RuntimeExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,8 +28,9 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findClientById(UUID id) {
+
         Optional<Client> clientObject = clientRepository.findById(id);
-        Client entityClient = clientObject.orElseThrow(RuntimeException::new);
+        Client entityClient = clientObject.orElseThrow(() -> new RuntimeExceptionHandler("Livro nao encontrado"));
 
         return new ClientDTO(entityClient);
 

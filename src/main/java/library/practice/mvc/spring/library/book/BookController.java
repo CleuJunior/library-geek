@@ -31,6 +31,12 @@ public class BookController implements Serializable {
                 .body(bookService.findBookById(id));
     }
 
+    @GetMapping(value = "/title/{title}")
+    public ResponseEntity<BookDTO> getBookById (@PathVariable String title) {
+        return ResponseEntity.ok()
+                .body(bookService.finBookByTitle(title));
+    }
+
     @PostMapping("/add")
     public ResponseEntity<BookDTO> addNewBook (@RequestBody BookDTO bookDTO) {
         bookDTO = bookService.saveBook(bookDTO);

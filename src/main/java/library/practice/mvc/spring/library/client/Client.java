@@ -1,5 +1,6 @@
 package library.practice.mvc.spring.library.client;
 
+import library.practice.mvc.spring.library.book.Book;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,18 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @EqualsAndHashCode
@@ -48,8 +54,9 @@ public class Client implements Serializable {
 
     private String phoneNumber;
 
-//    @Getter
-//    private final List<Book> purchasedBooks = new ArrayList<>();
+    @OneToMany(targetEntity = Book.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cp_fk", referencedColumnName = "id")
+    private final List<Book> purchasedBooks = new ArrayList<>();
 
     public Client(String name, String securityNumber, LocalDate birthDate, String address, String phoneNumber) {
         this.name = name;
@@ -59,7 +66,4 @@ public class Client implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-//    public void setPurchaseBooks(Book book) {
-//        purchasedBooks.add(book);
-//    }
 }
